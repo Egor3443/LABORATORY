@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.Window2Controller">
    <children>
-      <Label layoutX="336.0" layoutY="212.0" prefHeight="17.0" prefWidth="74.0" />
+      <Label fx:id="label_ERORR" layoutX="285.0" layoutY="314.0" prefHeight="17.0" prefWidth="231.0" textAlignment="CENTER" />
       <TextField fx:id="TextField_search" layoutX="87.0" layoutY="34.0" prefHeight="35.0" prefWidth="595.0" promptText="Введите данные для поиска">
          <font>
             <Font size="14.0" />
@@ -16,7 +16,7 @@
          <font>
             <Font size="14.0" />
          </font></Button>
-      <ListView fx:id="ListView_info" layoutX="42.0" layoutY="93.0" prefHeight="205.0" prefWidth="728.0" />
+      <ListView fx:id="ListView_info" layoutX="46.0" layoutY="96.0" prefHeight="205.0" prefWidth="728.0" />
       <Button fx:id="Button_Doc" layoutX="42.0" layoutY="314.0" mnemonicParsing="false" onAction="#Button_Doc" prefHeight="57.0" prefWidth="128.0" text="Создать отчет" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="16.0" />
@@ -44,6 +44,6 @@
          </font>
       </Button>
       <Button fx:id="Button_update" layoutX="42.0" layoutY="34.0" mnemonicParsing="false" onAction="#Button_update" prefHeight="35.0" prefWidth="33.0" text="🔄" />
-      <Label fx:id="Label_Erorr" layoutX="275.0" layoutY="343.0" prefHeight="57.0" prefWidth="186.0" />
+      <Label fx:id="Label_Erorr" layoutX="308.0" layoutY="314.0" prefHeight="57.0" prefWidth="186.0" />
    </children>
 </AnchorPane>

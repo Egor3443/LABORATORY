@@ -30,25 +30,19 @@ public class Window2Controller {
 
     @FXML
     private TextField TextField_search;
-
-
-
     @FXML
     public ListView ListView_info;
+    @FXML
+    public Label label_ERORR;
 
 
     // Label для документа
     @FXML
     private Label label_surname;
-
     @FXML
     private Label label_name;
-
     @FXML
     private Label Label_Erorr;
-
-
-
 
 
     String url  = "jdbc:mysql://localhost:3306/laboratory";
@@ -59,6 +53,9 @@ public class Window2Controller {
     Statement statement = null;
     ResultSet resultSet = null;
 
+    PreparedStatement preparedStatement = null;
+    ObservableList<String> results = FXCollections.observableArrayList();
+
 
 
     @FXML
@@ -68,7 +65,7 @@ public class Window2Controller {
         String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
                 "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ? OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
 
-        ObservableList<String> results = FXCollections.observableArrayList();
+
 
         try (Connection conn = DriverManager.getConnection(url,username,password);
              PreparedStatement prepareStatement = conn.prepareStatement(query)) {
@@ -83,11 +80,7 @@ public class Window2Controller {
             prepareStatement.setString(8,"%" +  searchTerm + "%");
             prepareStatement.setString(9,"%" +  searchTerm + "%");
 
-
-
-
             ResultSet resultSet = prepareStatement.executeQuery();
-
 
             while (resultSet.next()) {
                 String surname = resultSet.getString("surname");
@@ -112,13 +105,6 @@ public class Window2Controller {
 
     @FXML
     protected void Button_Doc() {
-
-
-
-
-
-
-
 
         try {
 
@@ -159,20 +145,39 @@ public class Window2Controller {
 
     @FXML
     protected void Button_Delete() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("WindowDoc.fxml"));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.showAndWait();
 
-        System.out.println("ffffff");
-        System.out.println("ffffff");
+        String selectedEmployee = ListView_info.getSelectionModel().getSelectedItem().toString();
+        if (selectedEmployee != null) {
+            String[] parts = selectedEmployee.split(" ");
+            String surname = parts[0];
+            String name = parts[1];
+            String patronymic = parts[2];
+            String sqlDel = "DELETE FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ?";
+
+            try{
+               connection = DriverManager.getConnection(url,username,password);
+
+                try (PreparedStatement preparedStatement1 = connection.prepareStatement(sqlDel)){
+                    preparedStatement1.setString(1, surname);
+                    preparedStatement1.setString(2, name);
+                    preparedStatement1.setString(3, patronymic);
+
+                    int rowsDeleted = preparedStatement1.executeUpdate();
+                    if (rowsDeleted > 0) {
+                        label_ERORR.setText("сотрудник успешно удален");
+                        // Обновляем ListView
+                        results.remove(selectedEmployee);
+                    } else {
+                        label_ERORR.setText("вы не выбрали сотрудника");
+                    }
+
+                }
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+        }
 
     }
 
