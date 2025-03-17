@@ -4,78 +4,117 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.DocController">
+<AnchorPane prefHeight="674.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.DocController">
    <children>
-      <Label layoutX="106.0" layoutY="106.0" prefHeight="43.0" prefWidth="288.0" text="отчет о сотруднике" textAlignment="CENTER" underline="true" wrapText="true">
+      <Label layoutX="380.0" layoutY="21.0" prefHeight="43.0" prefWidth="288.0" text="отчет о сотруднике" textAlignment="CENTER" underline="true" wrapText="true">
          <font>
             <Font name="Book Antiqua" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="249.0" prefHeight="26.0" prefWidth="183.0" text="ФИО" underline="true">
+      <Label layoutX="335.0" layoutY="125.0" prefHeight="25.0" prefWidth="183.0" text="ФИО" underline="true">
          <font>
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="167.0" prefHeight="17.0" prefWidth="415.0" text="__________________________________________________________________________________" underline="true" />
-      <Label layoutX="58.0" layoutY="292.0" prefHeight="23.0" prefWidth="86.0" text="Фамилия">
+      <Label layoutX="308.0" layoutY="74.0" prefHeight="17.0" prefWidth="432.0" text="__________________________________________________________________________________" underline="true" />
+      <Label layoutX="335.0" layoutY="170.0" prefHeight="23.0" prefWidth="86.0" text="Фамилия">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="323.0" prefHeight="17.0" prefWidth="59.0" text="Имя">
-         <font>
-            <Font name="Bell MT" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="58.0" layoutY="352.0" prefHeight="27.0" prefWidth="86.0" text="Отчество">
+      <Label layoutX="335.0" layoutY="202.0" prefHeight="17.0" prefWidth="59.0" text="Имя">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="439.0" text="пол">
+      <Label layoutX="335.0" layoutY="235.0" prefHeight="27.0" prefWidth="86.0" text="Отчество">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="60.0" layoutY="468.0" text="Возраст">
+      <Label layoutX="335.0" layoutY="317.0" text="Пол">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="58.0" layoutY="504.0" text="Семейное положение">
+      <Label layoutX="331.0" layoutY="346.0" text="Возраст">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="543.0" text="Наличие детей">
+      <Label layoutX="329.0" layoutY="382.0" text="Семейное положение">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="580.0" text="Должность">
+      <Label layoutX="331.0" layoutY="421.0" text="Наличие детей">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="623.0" text="Ученая степень">
+      <Label layoutX="328.0" layoutY="458.0" text="Должность">
          <font>
             <Font name="Inter Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="400.0" text="Личные данные" underline="true">
+      <Label layoutX="328.0" layoutY="496.0" text="Ученая степень">
+         <font>
+            <Font name="Inter Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="281.0" text="Личные данные" underline="true">
          <font>
             <Font name="Arial Rounded MT Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="label_surname" layoutX="294.0" layoutY="295.0" prefHeight="17.0" prefWidth="183.0" />
-      <Label fx:id="label_name" layoutX="289.0" layoutY="326.0" prefHeight="17.0" prefWidth="183.0" />
-      <Label fx:id="label_patronymic" layoutX="305.0" layoutY="357.0" prefHeight="17.0" prefWidth="161.0" />
-      <Label fx:id="label_gender" layoutX="380.0" layoutY="442.0" />
-      <Label fx:id="label_age" layoutX="380.0" layoutY="471.0" />
-      <Label fx:id="label_marital_status" layoutX="380.0" layoutY="507.0" />
-      <Label fx:id="label_the_presence_of_children" layoutX="380.0" layoutY="546.0" />
-      <Label fx:id="label_post" layoutX="380.0" layoutY="583.0" />
-      <Label fx:id="label_academic_degre" layoutX="380.0" layoutY="626.0" />
-      <Button layoutX="146.0" layoutY="723.0" mnemonicParsing="false" onAction="#Button_prov" text="Button" />
+      <Label fx:id="label_surname" layoutX="646.0" layoutY="173.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_name" layoutX="646.0" layoutY="205.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_patronymic" layoutX="646.0" layoutY="240.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_gender" layoutX="646.0" layoutY="320.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_age" layoutX="646.0" layoutY="349.0" prefHeight="17.0" prefWidth="183.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_marital_status" layoutX="646.0" layoutY="385.0" prefHeight="17.0" prefWidth="183.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_the_presence_of_children" layoutX="646.0" layoutY="424.0" prefHeight="17.0" prefWidth="183.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_post" layoutX="646.0" layoutY="461.0" prefHeight="17.0" prefWidth="183.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label fx:id="label_academic_degre" layoutX="646.0" layoutY="499.0" prefHeight="17.0" prefWidth="183.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="505.0" prefWidth="288.0" style="-fx-background-color: #A9A9A9;">
+         <children>
+            <Button layoutX="162.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_create" prefHeight="50.0" prefWidth="112.0" text="создать">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ListView fx:id="ListView_info" layoutX="8.0" layoutY="65.0" prefHeight="200.0" prefWidth="271.0" />
+            <TextField fx:id="textfield_search" layoutX="41.0" layoutY="29.0" prefHeight="25.0" prefWidth="183.0" />
+            <Button layoutX="227.0" layoutY="29.0" mnemonicParsing="false" onAction="#Button_search" prefHeight="25.0" prefWidth="49.0" text="найти" />
+            <Button layoutX="3.0" layoutY="29.0" mnemonicParsing="false" onAction="#Button_update" prefHeight="25.0" prefWidth="35.0" text="🔄" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -2,11 +2,94 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="541.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.ChangeController">
    <children>
-      <Button layoutX="30.0" layoutY="34.0" mnemonicParsing="false" onAction="#Button_Update" prefHeight="35.0" prefWidth="42.0" text="🔄" />
-      <TextField layoutX="87.0" layoutY="34.0" prefHeight="35.0" prefWidth="595.0" promptText="Введите данные для поиска" />
-      <Button layoutX="697.0" layoutY="34.0" mnemonicParsing="false" text="Button" />
+      <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="509.0" prefWidth="382.0" style="-fx-background-color: #A9A9A9;">
+         <children>
+            <TextField fx:id="textfield_search" layoutX="56.0" layoutY="14.0" prefHeight="35.0" prefWidth="246.0" promptText="Введите данные для поиска" />
+            <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" onAction="#Button_Update" prefHeight="35.0" prefWidth="43.0" text="🔄" />
+            <Button layoutX="309.0" layoutY="14.0" mnemonicParsing="false" onAction="#Button_search" prefHeight="35.0" prefWidth="63.0" text="Найти">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ListView fx:id="ListView_info" layoutX="6.0" layoutY="60.0" prefHeight="208.0" prefWidth="369.0" />
+            <Button layoutX="14.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_Create" prefHeight="54.0" prefWidth="139.0" text="выбрать">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="229.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_update" prefHeight="54.0" prefWidth="139.0" text="изменить">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <TextField fx:id="text_surname" layoutX="556.0" layoutY="53.0" />
+      <TextField fx:id="text_name" layoutX="556.0" layoutY="103.0" />
+      <TextField fx:id="text_patronymic" layoutX="556.0" layoutY="153.0" />
+      <TextField fx:id="text_gender" layoutX="556.0" layoutY="245.0" />
+      <TextField fx:id="text_age" layoutX="556.0" layoutY="299.0" />
+      <TextField fx:id="text_marital_status" layoutX="556.0" layoutY="349.0" />
+      <TextField fx:id="text_the_presence_of_children" layoutX="556.0" layoutY="397.0" />
+      <TextField fx:id="text_post" layoutX="556.0" layoutY="444.0" />
+      <TextField fx:id="text_academic_degre" layoutX="556.0" layoutY="498.0" />
+      <Label layoutX="415.0" layoutY="14.0" prefHeight="27.0" prefWidth="49.0" text="ФИО:">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="195.0" prefHeight="27.0" prefWidth="149.0" text="Личные данные:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="429.0" layoutY="55.0" text="Фамилия:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="432.0" layoutY="105.0" text="Имя:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="428.0" layoutY="155.0" text="Отчество:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="247.0" text="Пол:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="433.0" layoutY="301.0" text="Возраст:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="404.0" layoutY="352.0" text="Семейное положение:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="438.0" layoutY="400.0" text="Наличие детей:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="440.0" layoutY="448.0" text="Должность:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="435.0" layoutY="501.0" text="Ученная степень:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

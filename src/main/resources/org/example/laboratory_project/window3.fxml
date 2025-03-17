@@ -33,7 +33,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="Button_Change" layoutX="42.0" layoutY="428.0" mnemonicParsing="false" onAction="#Button_Change" prefHeight="57.0" prefWidth="180.0" text="Изменить данные">
+      <Button layoutX="42.0" layoutY="428.0" mnemonicParsing="false" onAction="#Button_Change" prefHeight="57.0" prefWidth="180.0" text="Изменить данные">
          <font>
             <Font size="17.0" />
          </font>
