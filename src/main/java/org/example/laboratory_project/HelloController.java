@@ -22,6 +22,8 @@ public class HelloController {
     private Label welcomeText;
     @FXML
     private TextField TextBox1;
+    @FXML
+    private Button Button1;
     int password = 3443;
 
 
@@ -47,6 +49,7 @@ public class HelloController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.showAndWait();
+            Button1.getScene().getWindow().hide();
 
         } else{
             welcomeText.setText("пароль не верный");
