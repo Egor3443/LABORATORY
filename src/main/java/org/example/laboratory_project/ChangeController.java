@@ -237,6 +237,8 @@ public class ChangeController {
                     prepareStatement.setString(9, "%" + searchTerm + "%");
 
                     ResultSet resultSet = prepareStatement.executeQuery();
+                    textfield_search.clear();
+
 
                     while (resultSet.next()) {
                         String surname = resultSet.getString("surname");

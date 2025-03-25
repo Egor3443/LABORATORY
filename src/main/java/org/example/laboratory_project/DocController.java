@@ -40,6 +40,9 @@ public class DocController {
     private ListView ListView_info;
     @FXML
     private TextField textfield_search;
+    @FXML
+    private Label label_DocLab;
+
 
 
     String url = "jdbc:mysql://localhost:3306/laboratory";
@@ -62,19 +65,25 @@ public class DocController {
             String name = selectedEmployeeId[1];
             String patronymic = selectedEmployeeId[2];
 
+
             // Загружаем информацию о сотруднике из базы данных
             try (Connection connection = DriverManager.getConnection(url,username,password)) {
 
                 String sql = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ?";
 
 
+
                 try (PreparedStatement statement = connection.prepareStatement(sql)) {
+
 
                     statement.setString(1,surname);
                     statement.setString(2,name);
                     statement.setString(3,patronymic);
 
+
                     ResultSet resultSet = statement.executeQuery();
+
+
 
                     if (resultSet.next()) {
                         // Обновляем Labels
@@ -87,11 +96,14 @@ public class DocController {
                         label_the_presence_of_children.setText(resultSet.getString(7));
                         label_post.setText( resultSet.getString(8));
                         label_academic_degre.setText(resultSet.getString(9));
+
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+
 
 
         }
@@ -139,7 +151,10 @@ public class DocController {
                     prepareStatement.setString(8, "%" + searchTerm + "%");
                     prepareStatement.setString(9, "%" + searchTerm + "%");
 
+
                     ResultSet resultSet = prepareStatement.executeQuery();
+                    textfield_search.clear();
+
 
                     while (resultSet.next()) {
                         String surname = resultSet.getString("surname");
@@ -163,6 +178,49 @@ public class DocController {
                 System.out.println("ошибка");
             }
         }
+
+    @FXML
+    protected void button_DocLab(){
+        StringBuilder report = new StringBuilder();
+
+        try {
+            // Подключение к базе данных
+
+            Connection connection = DriverManager.getConnection(url, username, password);
+
+            // Получаем общее количество сотрудников
+            String totalEmployeesQuery = "SELECT COUNT(*) AS total_employees FROM laboratory_staff";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(totalEmployeesQuery);
+            if (rs.next()) {
+                int totalEmployees = rs.getInt("total_employees");
+                report.append("Общее количество сотрудников: ").append(totalEmployees).append("\n\n");
+            }
+
+            // Получаем список должностей и количество сотрудников
+            String employeesByPostQuery = "SELECT post, COUNT(*) AS employees_count FROM laboratory_staff GROUP BY post";
+            rs = stmt.executeQuery(employeesByPostQuery);
+            report.append("Должности и количество сотрудников:\n\n");
+            while (rs.next()) {
+                String post = rs.getString("post");
+                int count = rs.getInt("employees_count");
+                report.append(post).append(": ").append(count).append(" человек\n");
+            }
+
+            // Закрываем соединение с базой данных
+            rs.close();
+            stmt.close();
+            connection.close();
+        } catch (Exception ex) {
+            report.append("Ошибка при генерации отчета: ").append(ex.getMessage());
+        }
+
+        // Выводим отчет в Label
+        label_DocLab.setText(report.toString());
+
+    }
+
+
 
 
     }

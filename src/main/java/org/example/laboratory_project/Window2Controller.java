@@ -81,6 +81,7 @@ public class Window2Controller {
                 prepareStatement.setString(9, "%" + searchTerm + "%");
 
                 ResultSet resultSet = prepareStatement.executeQuery();
+                TextField_search.clear();
 
                 while (resultSet.next()) {
                     String surname = resultSet.getString("surname");
