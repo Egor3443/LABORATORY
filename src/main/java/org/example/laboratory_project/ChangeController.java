@@ -238,6 +238,7 @@ public class ChangeController {
 
                     ResultSet resultSet = prepareStatement.executeQuery();
                     textfield_search.clear();
+                    ListView_info.getItems().clear();
 
 
                     while (resultSet.next()) {

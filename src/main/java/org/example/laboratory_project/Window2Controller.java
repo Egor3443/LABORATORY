@@ -82,6 +82,7 @@ public class Window2Controller {
 
                 ResultSet resultSet = prepareStatement.executeQuery();
                 TextField_search.clear();
+                ListView_info.getItems().clear();
 
                 while (resultSet.next()) {
                     String surname = resultSet.getString("surname");

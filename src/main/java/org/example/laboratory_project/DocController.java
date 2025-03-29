@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.Stage;
@@ -39,6 +41,10 @@ public class DocController {
     @FXML
     private ListView ListView_info;
     @FXML
+    private ListView List_Doc;
+    @FXML
+    private ImageView imageView_Doc;
+    @FXML
     private TextField textfield_search;
     @FXML
     private Label label_DocLab;
@@ -59,17 +65,18 @@ public class DocController {
         String selectedEmployee = ListView_info.getSelectionModel().getSelectedItem().toString();
 
         if (selectedEmployee != null) {
-            // Получаем ID сотрудника из выбранной строки
+
             String[] selectedEmployeeId = selectedEmployee.split(" ");
             String surname = selectedEmployeeId[0];
             String name = selectedEmployeeId[1];
             String patronymic = selectedEmployeeId[2];
 
 
-            // Загружаем информацию о сотруднике из базы данных
+
+
             try (Connection connection = DriverManager.getConnection(url,username,password)) {
 
-                String sql = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ?";
+                String sql = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ? " ;
 
 
 
@@ -80,10 +87,7 @@ public class DocController {
                     statement.setString(2,name);
                     statement.setString(3,patronymic);
 
-
                     ResultSet resultSet = statement.executeQuery();
-
-
 
                     if (resultSet.next()) {
                         // Обновляем Labels
@@ -135,7 +139,7 @@ public class DocController {
             String searchTerm = textfield_search.getText();
             if (searchTerm.length() > 0) {
                 String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
-                        "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ? OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
+                        "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ?  OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
 
 
                 try (Connection conn = DriverManager.getConnection(url, username, password);
@@ -154,6 +158,7 @@ public class DocController {
 
                     ResultSet resultSet = prepareStatement.executeQuery();
                     textfield_search.clear();
+                    ListView_info.getItems().clear();
 
 
                     while (resultSet.next()) {
@@ -181,10 +186,63 @@ public class DocController {
 
     @FXML
     protected void button_DocLab(){
-        StringBuilder report = new StringBuilder();
+
+
+
+
+
+        String searchTerm = textfield_search.getText();
+        if (searchTerm.length() > 0) {
+            String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
+                    "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ?  OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
+
+
+            try (Connection conn = DriverManager.getConnection(url, username, password);
+                 PreparedStatement prepareStatement = conn.prepareStatement(query)) {
+
+                prepareStatement.setString(1, "%" + searchTerm + "%"); // Установка параметра для полей
+                prepareStatement.setString(2, "%" + searchTerm + "%");
+                prepareStatement.setString(3, "%" + searchTerm + "%");
+                prepareStatement.setString(4, "%" + searchTerm + "%");
+                prepareStatement.setString(5, "%" + searchTerm + "%");
+                prepareStatement.setString(6, "%" + searchTerm + "%");
+                prepareStatement.setString(7, "%" + searchTerm + "%");
+                prepareStatement.setString(8, "%" + searchTerm + "%");
+                prepareStatement.setString(9, "%" + searchTerm + "%");
+
+
+                ResultSet resultSet = prepareStatement.executeQuery();
+                textfield_search.clear();
+                ListView_info.getItems().clear();
+
+
+                while (resultSet.next()) {
+                    String surname = resultSet.getString("surname");
+                    String name = resultSet.getString("name");
+                    String patronymic = resultSet.getString("patronymic");
+                    String gender = resultSet.getString("gender");
+                    int age = resultSet.getInt("age");
+                    String marital_status = resultSet.getString("marital_status");
+                    String the_presence_of_children = resultSet.getString("the_presence_of_children");
+                    String post = resultSet.getString("post");
+                    String academic_degre = resultSet.getString("academic_degre");
+
+                    results.add("ФИО: " + surname + " "  + name + " " + patronymic + "\n" + "Личная информация: \n" +"Пол: "+ gender + "\n" + "Возраст: " +age+ "\n" + "Семейное положение: " + marital_status+ "\n" + "Наличие детей: " + the_presence_of_children+ "\n" + "Должность: " + post + "\n" + "Ученая степень: "+academic_degre + "\n");
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+            List_Doc.setItems(results);
+
+        }else if (searchTerm.length() == 0){
+            System.out.println("ошибка");
+        }
+
+        /*StringBuilder report = new StringBuilder();
 
         try {
-            // Подключение к базе данных
+
 
             Connection connection = DriverManager.getConnection(url, username, password);
 
@@ -194,7 +252,7 @@ public class DocController {
             ResultSet rs = stmt.executeQuery(totalEmployeesQuery);
             if (rs.next()) {
                 int totalEmployees = rs.getInt("total_employees");
-                report.append("Общее количество сотрудников: ").append(totalEmployees).append("\n\n");
+                report.append("Общее количество сотрудников: \n").append(totalEmployees).append("\n\n");
             }
 
             // Получаем список должностей и количество сотрудников
@@ -218,10 +276,9 @@ public class DocController {
         // Выводим отчет в Label
         label_DocLab.setText(report.toString());
 
-    }
-
-
-
+         */
 
     }
+
+}
 

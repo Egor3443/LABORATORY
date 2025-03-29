@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -105,19 +106,23 @@
          </font></Label>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="505.0" prefWidth="288.0" style="-fx-background-color: #A9A9A9;">
          <children>
-            <Button layoutX="162.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_create" prefHeight="50.0" prefWidth="112.0" text="создать">
+            <Button layoutX="162.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_create" prefHeight="50.0" prefWidth="112.0" text="создать отчет" wrapText="true">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
             <ListView fx:id="ListView_info" layoutX="8.0" layoutY="65.0" prefHeight="200.0" prefWidth="271.0" />
             <TextField fx:id="textfield_search" layoutX="41.0" layoutY="29.0" prefHeight="25.0" prefWidth="183.0" />
             <Button layoutX="227.0" layoutY="29.0" mnemonicParsing="false" onAction="#Button_search" prefHeight="25.0" prefWidth="49.0" text="найти" />
             <Button layoutX="3.0" layoutY="29.0" mnemonicParsing="false" onAction="#Button_update" prefHeight="25.0" prefWidth="35.0" text="🔄" />
+            <Button layoutX="8.0" layoutY="441.0" mnemonicParsing="false" onAction="#button_DocLab" prefHeight="50.0" prefWidth="112.0" text="Вывести сотрудников" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <Button layoutX="1057.0" layoutY="587.0" mnemonicParsing="false" onAction="#button_DocLab" text="Button" />
-      <Label fx:id="label_DocLab" layoutX="825.0" layoutY="73.0" prefHeight="319.0" prefWidth="331.0" wrapText="true">
+      <Label fx:id="label_DocLab" layoutY="526.0" prefHeight="111.0" prefWidth="331.0" wrapText="true">
          <font>
             <Font size="16.0" />
          </font></Label>
@@ -126,5 +131,7 @@
             <Font name="Book Antiqua" size="31.0" />
          </font>
       </Label>
+      <ListView fx:id="List_Doc" layoutX="815.0" layoutY="86.0" prefHeight="563.0" prefWidth="331.0" />
+      <ImageView fx:id="imageView_Doc" fitHeight="72.0" fitWidth="331.0" layoutX="33.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
