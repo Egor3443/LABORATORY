@@ -51,7 +51,7 @@ public class DocController {
 
 
 
-    String url = "jdbc:mysql://localhost:3306/laboratory";
+    String url = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
 

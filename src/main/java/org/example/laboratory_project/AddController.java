@@ -47,9 +47,10 @@ public class AddController {
 
 
 
-    String url  = "jdbc:mysql://localhost:3306/laboratory";
+    String url  = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
+
 
     Connection connection = null;
     Statement statement = null;
@@ -62,8 +63,6 @@ public class AddController {
 
     @FXML
     protected void Button_Add(){
-
-
 
         String _surname = TextSurname.getText().trim();
         String _name = TextName.getText().trim();

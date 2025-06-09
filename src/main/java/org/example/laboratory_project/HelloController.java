@@ -27,12 +27,6 @@ public class HelloController {
     int password = 3443;
 
 
-
-
-
-
-
-
     @FXML
     protected void Button1(){
         int passwordInput = Integer.parseInt(TextBox1.getText().trim());

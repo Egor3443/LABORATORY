@@ -45,7 +45,7 @@ public class Window2Controller {
     private Label Label_Erorr;
 
 
-    String url  = "jdbc:mysql://localhost:3306/laboratory";
+    String url  = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
     String Password = "3443";

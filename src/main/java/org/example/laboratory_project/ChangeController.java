@@ -51,7 +51,7 @@ public class ChangeController {
     private TextField textfield_search;
 
 
-    String url = "jdbc:mysql://localhost:3306/laboratory";
+    String url = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
 
@@ -124,11 +124,6 @@ public class ChangeController {
         }
 
 
-
-
-
-
-
     }
     @FXML
     protected void Button_update() {
@@ -182,13 +177,7 @@ public class ChangeController {
             }
         }
 
-
-
-
     }
-
-
-
 
 
         @FXML
@@ -210,7 +199,6 @@ public class ChangeController {
             } catch (Exception e) {
                 System.out.println(e);
             }
-
 
         }
 
@@ -264,10 +252,5 @@ public class ChangeController {
             }
 
         }
-
-
-
-
-
 
 }
