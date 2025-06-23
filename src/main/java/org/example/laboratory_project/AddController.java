@@ -2,16 +2,14 @@ package org.example.laboratory_project;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
+
 
 import java.io.IOException;
 import java.sql.*;
@@ -44,9 +42,6 @@ public class AddController {
     private Label labelEx;
 
 
-
-
-
     String url  = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
@@ -56,7 +51,7 @@ public class AddController {
     Statement statement = null;
     ResultSet resultSet = null;
 
-
+    Alert alert = new Alert(Alert.AlertType.ERROR);
 
 
 
@@ -74,7 +69,6 @@ public class AddController {
             _age = Integer.parseInt(TextAge.getText()); // Преобразуем строку в целое число
         } catch (NumberFormatException e) {
             // Обрабатываем ситуацию, когда текст не является корректным целым числом
-
         }
 
         String 	_marital_status = TextMarital_status.getText().trim();
@@ -86,7 +80,6 @@ public class AddController {
 
          try {
              if (_surname.length() > 0 && _name.length() > 0 && _patronymic.length() > 0 && _gender.length() > 0  && _marital_status.length() > 0 && _the_presence_of_children.length() > 0 && _post.length() > 0 && _academic_degre.length() > 0) {
-
 
                 connection = DriverManager.getConnection(url, username, password);
                 PreparedStatement preparedStatement = connection.prepareStatement(sqlText);
@@ -103,25 +96,14 @@ public class AddController {
                 Button_Add.getScene().getWindow().hide();
              }else {
                  labelErorr.setText("не все окна заполнены");
+                 alert.setTitle("Ошибка");
+                 alert.setHeaderText("Пустое поле");
+                 alert.setContentText("Пожалуйста, заполните поле.");
+                 alert.showAndWait();
              }
 
-
-
-            }catch(Exception e){
+         }catch(Exception e){
                 System.out.println(e);
-            }
-
-
-
-
-
-
-
-
-
-
+         }
     }
-
-
-
 }

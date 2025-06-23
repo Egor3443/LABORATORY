@@ -4,10 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.Stage;
@@ -15,12 +12,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
-
 import java.io.IOException;
 import java.sql.PreparedStatement;
-
 import java.sql.*;
-
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +28,6 @@ public class Window2Controller {
     public ListView ListView_info;
     @FXML
     public Label label_ERORR;
-
-
     // Label для документа
     @FXML
     private Label label_surname;
@@ -56,6 +48,10 @@ public class Window2Controller {
     PreparedStatement preparedStatement = null;
     ObservableList<String> results = FXCollections.observableArrayList();
 
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    Alert alertNs = new Alert(Alert.AlertType.INFORMATION);
+
+
 
 
     @FXML
@@ -66,9 +62,8 @@ public class Window2Controller {
             String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
                     "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ? OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
 
-
             try (Connection conn = DriverManager.getConnection(url, username, password);
-                 PreparedStatement prepareStatement = conn.prepareStatement(query)) {
+                 PreparedStatement prepareStatement = conn.prepareStatement(query)){
 
                 prepareStatement.setString(1, "%" + searchTerm + "%"); // Установка параметра для полей
                 prepareStatement.setString(2, "%" + searchTerm + "%");
@@ -97,6 +92,7 @@ public class Window2Controller {
 
                     results.add(surname + " " + name + " " + patronymic);
                 }
+
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
@@ -105,51 +101,47 @@ public class Window2Controller {
         }else if(searchTerm.length() == 0){
             System.out.println("ошибка");
         }
-
     }
-
-
 
     @FXML
     protected void Button_Delete() {
+        try {
+            // Получаем выбранный элемент (может быть null)
+            String selectedEmployee = ListView_info.getSelectionModel().getSelectedItem().toString();
 
-        String selectedEmployee = ListView_info.getSelectionModel().getSelectedItem().toString();
-        if (selectedEmployee != null) {
             String[] parts = selectedEmployee.split(" ");
             String surname = parts[0];
             String name = parts[1];
             String patronymic = parts[2];
             String sqlDel = "DELETE FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ?";
 
-            try{
-               connection = DriverManager.getConnection(url,username,password);
+            connection = DriverManager.getConnection(url, username, password);
+            try (PreparedStatement preparedStatement1 = connection.prepareStatement(sqlDel)) {
+                preparedStatement1.setString(1, surname);
+                preparedStatement1.setString(2, name);
+                preparedStatement1.setString(3, patronymic);
 
-                try (PreparedStatement preparedStatement1 = connection.prepareStatement(sqlDel)){
-                    preparedStatement1.setString(1, surname);
-                    preparedStatement1.setString(2, name);
-                    preparedStatement1.setString(3, patronymic);
-
-                    int rowsDeleted = preparedStatement1.executeUpdate();
-                    if (rowsDeleted > 0) {
-                        label_ERORR.setText("сотрудник успешно удален");
-                        // Обновляем ListView
-                        results.remove(selectedEmployee);
-                    } else {
-                        label_ERORR.setText("вы не выбрали сотрудника");
-                    }
-
+                int rowsDeleted = preparedStatement1.executeUpdate();
+                if (rowsDeleted > 0) {
+                    label_ERORR.setText("сотрудник успешно удален");
+                    alertNs.setTitle("успех");
+                    alertNs.setContentText("Сотрудник успешно удален");
+                    alertNs.showAndWait();
+                    // Обновляем ListView
+                    results.remove(selectedEmployee);
+                } else {
+                    label_ERORR.setText("Не удалось удалить сотрудника");
                 }
-
-            }catch (Exception e){
-                System.out.println(e);
             }
-
+        } catch (Exception e) {
+            e.printStackTrace();
+            label_ERORR.setText("Произошла ошибка при удалении");
+            alert.setTitle("Ошибка");
+            alert.setHeaderText("Пустое поле");
+            alert.setContentText("Пожалуйста, выбирите поле");
+            alert.showAndWait();
         }
-
     }
-
-
-
 
     @FXML
     protected void Button_update() {
@@ -158,7 +150,6 @@ public class Window2Controller {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT surname, name, patronymic FROM laboratory_staff" );
             ListView_info.getItems().clear();
-
 
             while (resultSet.next()){
                 ListView_info.getItems().addAll( resultSet.getString(1) + " " + resultSet.getString(2 )+ " " +resultSet.getString(3));
@@ -170,7 +161,6 @@ public class Window2Controller {
         catch (Exception e){
             System.out.println(e);
         }
-
     }
 
     @FXML
@@ -200,7 +190,6 @@ public class Window2Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
     }
     @FXML
     protected void Button_Change() {
@@ -215,8 +204,5 @@ public class Window2Controller {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.showAndWait();
-
     }
-
-
 }

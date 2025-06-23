@@ -4,10 +4,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.Stage;
@@ -60,6 +57,8 @@ public class ChangeController {
     ResultSet resultSet = null;
     ObservableList<String> results = FXCollections.observableArrayList();
     //ListView<String> staffListView = new ListView<>(staffList);
+
+    Alert alertNs = new Alert(Alert.AlertType.INFORMATION);
 
 
 
@@ -115,15 +114,10 @@ public class ChangeController {
                 updatePs.executeUpdate();
 
                  */
-
-
-
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
-
-
     }
     @FXML
     protected void Button_update() {
@@ -138,7 +132,6 @@ public class ChangeController {
             String sql = "UPDATE laboratory_staff SET surname = ?, name = ?, patronymic = ?, gender = ?, age = ?, " +
                     "marital_status = ?, the_presence_of_children = ?, post = ?, academic_degre = ? " +
                     "WHERE surname = ? AND name = ? AND patronymic = ?";
-
 
             try {
                 // Загрузка данных выбранного сотрудника
@@ -161,9 +154,16 @@ public class ChangeController {
                 updatePs.setString(11, name);
                 updatePs.setString(12, patronymic);
 
-
-
                 updatePs.executeUpdate();
+
+                int rowsChange = updatePs.executeUpdate();
+
+                if (rowsChange>0){
+
+                    alertNs.setTitle("успех");
+                    alertNs.setContentText("Данные успешно исправлены");
+                    alertNs.showAndWait();
+                }
 
                 results.clear();
                 PreparedStatement refreshPs = connection.prepareStatement("SELECT surname, name, post FROM laboratory_staff");
@@ -180,36 +180,32 @@ public class ChangeController {
     }
 
 
-        @FXML
-        protected void Button_Update () {
+    @FXML
+    protected void Button_Update () {
 
-            try {
-                connection = DriverManager.getConnection(url, username, password);
-                statement = connection.createStatement();
-                resultSet = statement.executeQuery("SELECT surname, name, patronymic FROM laboratory_staff");
-                ListView_info.getItems().clear();
-
-
-                while (resultSet.next()) {
-                    ListView_info.getItems().addAll(resultSet.getString(1) + " " + resultSet.getString(2) + " " + resultSet.getString(3));
-                }
-                resultSet.close();
-                statement.close();
-                connection.close();
-            } catch (Exception e) {
-                System.out.println(e);
+        try {
+            connection = DriverManager.getConnection(url, username, password);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT surname, name, patronymic FROM laboratory_staff");
+            ListView_info.getItems().clear();
+            while (resultSet.next()) {
+                  ListView_info.getItems().addAll(resultSet.getString(1) + " " + resultSet.getString(2) + " " + resultSet.getString(3));
             }
-
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (Exception e) {
+                System.out.println(e);
         }
 
-        @FXML
-        protected void Button_search () {
+    }
 
-            String searchTerm = textfield_search.getText();
-            if (searchTerm.length() > 0) {
-                String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
-                        "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ? OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
-
+    @FXML
+    protected void Button_search () {
+        String searchTerm = textfield_search.getText();
+        if (searchTerm.length() > 0) {
+            String query = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE " +
+                    "surname LIKE ? OR name LIKE ? OR patronymic LIKE ? OR gender LIKE ? OR age LIKE ? OR marital_status LIKE ? OR the_presence_of_children LIKE ? OR post LIKE ? OR academic_degre LIKE ?";
 
                 try (Connection conn = DriverManager.getConnection(url, username, password);
                      PreparedStatement prepareStatement = conn.prepareStatement(query)) {
@@ -227,7 +223,6 @@ public class ChangeController {
                     ResultSet resultSet = prepareStatement.executeQuery();
                     textfield_search.clear();
                     ListView_info.getItems().clear();
-
 
                     while (resultSet.next()) {
                         String surname = resultSet.getString("surname");
@@ -247,10 +242,10 @@ public class ChangeController {
                 }
                 // Добавление результатов в список
                 ListView_info.setItems(results);
-            } else if (searchTerm.length() == 0) {
+        } else if (searchTerm.length() == 0) {
                 System.out.println("ошибка");
-            }
-
         }
+
+    }
 
 }

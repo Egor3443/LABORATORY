@@ -1,109 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="677.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.DocController">
+<AnchorPane prefHeight="565.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.DocController">
    <children>
-      <Label layoutX="383.0" layoutY="20.0" prefHeight="43.0" prefWidth="288.0" text="отчет о сотруднике" textAlignment="CENTER" underline="true" wrapText="true">
-         <font>
-            <Font name="Book Antiqua" size="31.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="125.0" prefHeight="25.0" prefWidth="183.0" text="ФИО" underline="true">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="311.0" layoutY="73.0" prefHeight="17.0" prefWidth="432.0" text="__________________________________________________________________________________" underline="true" />
-      <Label layoutX="335.0" layoutY="163.0" prefHeight="23.0" prefWidth="86.0" text="Фамилия">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="334.0" layoutY="195.0" prefHeight="17.0" prefWidth="59.0" text="Имя">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="218.0" prefHeight="27.0" prefWidth="86.0" text="Отчество">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="335.0" layoutY="282.0" text="Пол">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="334.0" layoutY="309.0" text="Возраст">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="332.0" layoutY="338.0" text="Семейное положение">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="331.0" layoutY="369.0" text="Наличие детей">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="330.0" layoutY="394.0" text="Должность">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="328.0" layoutY="423.0" text="Ученая степень">
-         <font>
-            <Font name="Inter Regular" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="332.0" layoutY="249.0" text="Личные данные" underline="true">
-         <font>
-            <Font name="Arial Rounded MT Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="label_surname" layoutX="577.0" layoutY="165.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_name" layoutX="577.0" layoutY="197.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_patronymic" layoutX="577.0" layoutY="222.0" prefHeight="17.0" prefWidth="183.0" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_gender" layoutX="577.0" layoutY="284.0" prefHeight="20.0" prefWidth="183.0" wrapText="true">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_age" layoutX="577.0" layoutY="311.0" prefHeight="17.0" prefWidth="183.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_marital_status" layoutX="577.0" layoutY="340.0" prefHeight="17.0" prefWidth="183.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_the_presence_of_children" layoutX="577.0" layoutY="371.0" prefHeight="17.0" prefWidth="183.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_post" layoutX="577.0" layoutY="396.0" prefHeight="17.0" prefWidth="183.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
-      <Label fx:id="label_academic_degre" layoutX="577.0" layoutY="425.0" prefHeight="17.0" prefWidth="183.0">
-         <font>
-            <Font size="14.0" />
-         </font></Label>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="505.0" prefWidth="288.0" style="-fx-background-color: #A9A9A9;">
          <children>
             <Button layoutX="162.0" layoutY="441.0" mnemonicParsing="false" onAction="#Button_create" prefHeight="50.0" prefWidth="112.0" text="создать отчет" wrapText="true">
@@ -122,16 +24,11 @@
             </Button>
          </children>
       </AnchorPane>
-      <Label fx:id="label_DocLab" layoutY="526.0" prefHeight="111.0" prefWidth="331.0" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font></Label>
-      <Label layoutX="825.0" layoutY="22.0" prefHeight="40.0" prefWidth="310.0" text="отчет о сотрудниках" textAlignment="CENTER" underline="true" wrapText="true">
+      <Label layoutX="334.0" layoutY="24.0" prefHeight="40.0" prefWidth="288.0" text="отчет о сотрудниках" textAlignment="CENTER" underline="true" wrapText="true">
          <font>
             <Font name="Book Antiqua" size="31.0" />
          </font>
       </Label>
-      <ListView fx:id="List_Doc" layoutX="815.0" layoutY="86.0" prefHeight="563.0" prefWidth="331.0" />
-      <ImageView fx:id="imageView_Doc" fitHeight="72.0" fitWidth="331.0" layoutX="33.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true" />
+      <ListView fx:id="List_Doc" layoutX="312.0" layoutY="90.0" prefHeight="431.0" prefWidth="331.0" />
    </children>
 </AnchorPane>
