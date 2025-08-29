@@ -20,23 +20,17 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-
-
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 800, 500);
             stage.setTitle("Hello!");
             stage.setScene(scene);
+
+            stage.setFullScreen(true);
+            stage.setTitle("FullScreen App");
+            stage.setScene(scene);
             stage.show();
-
-
         } catch (IOException e) {
             e.printStackTrace();
-
-
         }
-
-
-
-
     }
 }

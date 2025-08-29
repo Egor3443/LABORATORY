@@ -12,12 +12,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
 import javafx.collections.FXCollections;
-
 import java.io.IOException;
 import java.sql.PreparedStatement;
-
 import java.sql.*;
-
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,8 +57,6 @@ public class ChangeController {
 
     Alert alertNs = new Alert(Alert.AlertType.INFORMATION);
 
-
-
     @FXML
     protected void Button_Create() {
 
@@ -94,26 +89,6 @@ public class ChangeController {
                     text_academic_degre.setText(rs.getString("academic_degre"));
                 }
 
-                // Обновление данных сотрудника
-                /*PreparedStatement updatePs = connection.prepareStatement(
-                        "UPDATE laboratory_staff SET surname = ?, name = ?, patronymic = ?, gender = ?, age = ?, " +
-                                "marital_status = ?, the_presence_of_children = ?, post = ?, academic_degre = ? " +
-                                "WHERE surname = ? AND name = ? AND patronymic = ?");
-                updatePs.setString(1, text_surname.getText());
-                updatePs.setString(2, text_name.getText());
-                updatePs.setString(3, text_patronymic.getText());
-                updatePs.setString(4, text_gender.getText());
-                updatePs.setInt(5, Integer.parseInt(text_age.getText()));
-                updatePs.setString(6, text_marital_status.getText());
-                updatePs.setString(7, text_the_presence_of_children.getText());
-                updatePs.setString(8, text_post.getText());
-                updatePs.setString(9, text_academic_degre.getText());
-                updatePs.setString(10, surname);
-                updatePs.setString(11, name);
-                updatePs.setString(12, patronymic);
-                updatePs.executeUpdate();
-
-                 */
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -132,7 +107,6 @@ public class ChangeController {
             String sql = "UPDATE laboratory_staff SET surname = ?, name = ?, patronymic = ?, gender = ?, age = ?, " +
                     "marital_status = ?, the_presence_of_children = ?, post = ?, academic_degre = ? " +
                     "WHERE surname = ? AND name = ? AND patronymic = ?";
-
             try {
                 // Загрузка данных выбранного сотрудника
                 connection = DriverManager.getConnection(url, username, password);
@@ -179,7 +153,6 @@ public class ChangeController {
 
     }
 
-
     @FXML
     protected void Button_Update () {
 
@@ -199,7 +172,6 @@ public class ChangeController {
         }
 
     }
-
     @FXML
     protected void Button_search () {
         String searchTerm = textfield_search.getText();
