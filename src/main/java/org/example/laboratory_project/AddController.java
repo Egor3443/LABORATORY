@@ -10,7 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.Parent;
 import javafx.event.ActionEvent;
 
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -41,20 +40,15 @@ public class AddController {
     @FXML
     private Label labelEx;
 
-
     String url  = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
-
 
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
 
     Alert alert = new Alert(Alert.AlertType.ERROR);
-
-
-
 
     @FXML
     protected void Button_Add(){
@@ -101,7 +95,6 @@ public class AddController {
                  alert.setContentText("Пожалуйста, заполните поле.");
                  alert.showAndWait();
              }
-
          }catch(Exception e){
                 System.out.println(e);
          }

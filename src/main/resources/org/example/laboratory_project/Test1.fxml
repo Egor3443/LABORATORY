@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="68.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <TextField alignment="CENTER" prefHeight="26.0" prefWidth="538.0" />
+         </children>
+      </VBox>
+      <VBox prefHeight="91.0" prefWidth="600.0" />
+      <VBox prefHeight="105.0" prefWidth="600.0" />
+      <VBox prefHeight="141.0" prefWidth="600.0" />
+   </children>
+</VBox>

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.Window2Controller">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.laboratory_project.Window2Controller">
    <children>
       <Label fx:id="label_ERORR" layoutX="285.0" layoutY="314.0" prefHeight="17.0" prefWidth="231.0" textAlignment="CENTER" />
       <TextField fx:id="TextField_search" layoutX="87.0" layoutY="34.0" prefHeight="35.0" prefWidth="595.0" promptText="Введите данные для поиска">
@@ -45,5 +45,6 @@
       </Button>
       <Button fx:id="Button_update" layoutX="42.0" layoutY="34.0" mnemonicParsing="false" onAction="#Button_update" prefHeight="35.0" prefWidth="33.0" text="🔄" />
       <Label fx:id="Label_Erorr" layoutX="308.0" layoutY="314.0" prefHeight="57.0" prefWidth="186.0" />
+      <Button layoutX="318.0" layoutY="346.0" mnemonicParsing="false" onAction="#reportBTN" text="Button" />
    </children>
 </AnchorPane>

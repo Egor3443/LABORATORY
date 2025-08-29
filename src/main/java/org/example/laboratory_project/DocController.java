@@ -25,7 +25,6 @@ public class DocController {
     private ImageView imageView_Doc;
     @FXML
     private TextField textfield_search;
-
     String url = "jdbc:mysql://localhost:8889/LABORATORY";
     String username = "pk31";
     String password = "123456";
@@ -49,7 +48,6 @@ public class DocController {
             String name = selectedEmployeeId[1];
             String patronymic = selectedEmployeeId[2];
 
-
             try (Connection connection = DriverManager.getConnection(url,username,password)) {
 
                 String sql = "SELECT surname, name, patronymic, gender, age, marital_status, the_presence_of_children, post, academic_degre FROM laboratory_staff WHERE surname = ? AND name = ? AND patronymic = ? " ;
@@ -59,7 +57,6 @@ public class DocController {
                     statement.setString(1,surname);
                     statement.setString(2,name);
                     statement.setString(3,patronymic);
-
                     ResultSet resultSet = statement.executeQuery();
 
                     if (resultSet.next()) {
@@ -74,7 +71,6 @@ public class DocController {
                                 + "Наличие детей: " + resultSet.getString(7) + "\n"
                                 + "Должность: " + resultSet.getString(8) + "\n"
                                 + "Ученая степень: " + resultSet.getString(9) + "\n");
-
                         alertCon.showAndWait();
                     }
                 }
@@ -185,56 +181,15 @@ public class DocController {
                     String the_presence_of_children = resultSet.getString("the_presence_of_children");
                     String post = resultSet.getString("post");
                     String academic_degre = resultSet.getString("academic_degre");
-
                     results.add("ФИО: " + surname + " "  + name + " " + patronymic + "\n" + "Личная информация: \n" +"Пол: "+ gender + "\n" + "Возраст: " +age+ "\n" + "Семейное положение: " + marital_status+ "\n" + "Наличие детей: " + the_presence_of_children+ "\n" + "Должность: " + post + "\n" + "Ученая степень: "+academic_degre + "\n");
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
-
             List_Doc.setItems(results);
-
         }else if (searchTerm.length() == 0){
             System.out.println("ошибка");
         }
-
-        /*StringBuilder report = new StringBuilder();
-
-        try {
-
-            Connection connection = DriverManager.getConnection(url, username, password);
-
-            // Получаем общее количество сотрудников
-            String totalEmployeesQuery = "SELECT COUNT(*) AS total_employees FROM laboratory_staff";
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(totalEmployeesQuery);
-            if (rs.next()) {
-                int totalEmployees = rs.getInt("total_employees");
-                report.append("Общее количество сотрудников: \n").append(totalEmployees).append("\n\n");
-            }
-
-            // Получаем список должностей и количество сотрудников
-            String employeesByPostQuery = "SELECT post, COUNT(*) AS employees_count FROM laboratory_staff GROUP BY post";
-            rs = stmt.executeQuery(employeesByPostQuery);
-            report.append("Должности и количество сотрудников:\n\n");
-            while (rs.next()) {
-                String post = rs.getString("post");
-                int count = rs.getInt("employees_count");
-                report.append(post).append(": ").append(count).append(" человек\n");
-            }
-
-            // Закрываем соединение с базой данных
-            rs.close();
-            stmt.close();
-            connection.close();
-        } catch (Exception ex) {
-            report.append("Ошибка при генерации отчета: ").append(ex.getMessage());
-        }
-
-        // Выводим отчет в Label
-        label_DocLab.setText(report.toString());
-
-         */
     }
 }
 

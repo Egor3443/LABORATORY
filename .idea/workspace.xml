@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4164d366-c930-4d63-960c-528d4767a741" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DataCon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Test1Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/Test1.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/AddController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/ChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/ChangeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DocController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Window2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Window2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/WindowDoc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/WindowDoc.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/window3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/laboratory_project/window3.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +46,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2tUeH7WwtEMKPhOzSCuR2UCNbu5" />
   <component name="ProjectViewState">
@@ -93,5 +99,16 @@
       <updated>1740410991514</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Window2Controller.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

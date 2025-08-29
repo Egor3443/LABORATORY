@@ -52,8 +52,6 @@ public class Window2Controller {
     Alert alertNs = new Alert(Alert.AlertType.INFORMATION);
 
 
-
-
     @FXML
     protected void Button_search() {
 
@@ -195,6 +193,21 @@ public class Window2Controller {
     protected void Button_Change() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("WindowChange.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.showAndWait();
+    }
+
+    @FXML
+    protected void reportBTN() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Test1.fxml"));
         try {
             loader.load();
         } catch (IOException e) {
