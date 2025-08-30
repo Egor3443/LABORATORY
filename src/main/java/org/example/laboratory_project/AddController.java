@@ -42,7 +42,7 @@ public class AddController {
     @FXML
     private Label labelEx;
 
-    String url  = "jdbc:mysql://localhost:8889/LABORATORY";
+    String url  = "jdbc:mysql://localhost:3306/LABORATORY";
     String username = "pk31";
     String password = "123456";
 
