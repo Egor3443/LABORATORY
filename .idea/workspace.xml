@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4164d366-c930-4d63-960c-528d4767a741" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/AddController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/AddController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/ChangeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/ChangeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DataCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DataCon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/DocController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Window2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/laboratory_project/Window2Controller.java" afterDir="false" />
-    </list>
+    <list default="true" id="4164d366-c930-4d63-960c-528d4767a741" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
